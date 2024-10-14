@@ -27,7 +27,7 @@ const Login = ({ flag, setFlag }) => {
     }
    if(otpSend){
     axios
-    .post('http://localhost:9001/verifyOTP', formData)
+    .post('https://big-basket-server-iusc.onrender.com/verifyOTP', formData)
     .then((response) =>{alert('OTP verified')
       localStorage.setItem("token",JSON.stringify(response.data.token))
       setFlag(!flag);
@@ -36,7 +36,7 @@ const Login = ({ flag, setFlag }) => {
     .catch((err) => console.error(err));
    }else{
     axios
-      .post('http://localhost:9001/signup', formData)
+      .post('https://big-basket-server-iusc.onrender.com/signup', formData)
       .then(() =>{alert('OTP Sent')
         setOtpSend(true)
       })

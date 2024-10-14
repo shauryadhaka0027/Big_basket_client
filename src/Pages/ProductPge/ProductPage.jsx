@@ -20,7 +20,7 @@ const ProductPage = () => {
   // Fetch product data and populate the images array
   useEffect(() => {
     axios
-      .get(`${URL}/product/get/${id}`)
+      .get(`https://big-basket-server-iusc.onrender.com/product/get/${id}`)
       .then((response) => {
         const data = response.data.data;
         setProduct(data);

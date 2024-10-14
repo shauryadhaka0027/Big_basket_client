@@ -48,7 +48,7 @@ const Card = () => {
     const [products,setProducts]=useState([])
     const fetchProducts = () => {
         axios
-          .get("http://localhost:9001/product", { withCredentials: true })
+          .get("https://big-basket-server-iusc.onrender.com/product", { withCredentials: true })
           .then((response) => {
             setProducts(response.data.data);
           })
