@@ -11,10 +11,16 @@ const Navbar = () => {
     const checkValidate=JSON.parse(localStorage.getItem("token"))
     const [onClickLogin,setOnClickLogin] =useState(false)
     const {productArr}=useZustand()
+    const navigate = useNavigate();
 
     const login=()=>{
         setOnClickLogin(!onClickLogin)
       
+    }
+    const logout=()=>{
+       localStorage.removeItem("token");
+       window.location.reload();
+       navigate("/")
     }
   return (
     <>
@@ -57,7 +63,7 @@ const Navbar = () => {
               <Link to="/cart">
               <FloatButton className='absolute top-0 left-24' badge={{ count: productArr?.length}} icon={<FaBagShopping/>} />
               </Link>
-              <button onClick={login} className='bg-black text-white mx-2 w-20 text-sm h-10'>
+              <button onClick={logout} className='bg-black text-white mx-2 w-20 text-sm h-10'>
               Logout
             </button>
             </div>
